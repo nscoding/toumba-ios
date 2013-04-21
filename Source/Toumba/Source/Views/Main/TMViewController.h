@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 Patrick Chamelo - nscoding. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 
-@interface TMViewController : UIViewController
+@interface TMViewController : UIViewController <UIScrollViewDelegate>
+
+@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UILabel *footerLabel;
 
 @end
