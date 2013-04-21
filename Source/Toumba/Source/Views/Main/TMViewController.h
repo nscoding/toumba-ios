@@ -6,10 +6,18 @@
 //  Copyright (c) 2013 Patrick Chamelo - nscoding. All rights reserved.
 //
 
+#import "TMLocationHelper.h"
 
-@interface TMViewController : UIViewController <UIScrollViewDelegate>
 
+@interface TMViewController : UIViewController <UIScrollViewDelegate, TMLocationHelperDelegate>
+{
+    BOOL animatesCompass;
+    BOOL animatesArrow;
+}
+@property (nonatomic, strong) TMLocationHelper *locationHelper;
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UILabel *footerLabel;
+@property (nonatomic, strong) UIImageView *compassBaseView;
+@property (nonatomic, strong) UIImageView *arrowView;
 
 @end
