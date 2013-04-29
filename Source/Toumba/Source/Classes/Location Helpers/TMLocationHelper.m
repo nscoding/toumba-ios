@@ -86,13 +86,28 @@
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error
 {    
-    NSString *errorType = (error.code == kCLErrorDenied) ? @"Access Denied" : @"Unknown Error";
-    UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle:errorType
-                          message:@"There was an error retrieving your location"
-                          delegate:nil
-                          cancelButtonTitle:@"Dismiss"
-                          otherButtonTitles:nil];
+    NSString *errorType;
+    NSString *errorMessage;
+    
+    if (error.code == kCLErrorDenied)
+    {
+        errorType = @"Access Denied";
+        errorMessage = @"Turn on your location services in the settings app "
+                       @"to allow \"Toumba\" to determine your location";
+    }
+    else
+    {
+        errorType = @"Something went wrong";
+        errorMessage = @"There was an error retrieving your location";
+    }
+    
+    
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:errorType
+                                                    message:errorMessage
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Dismiss"
+                                          otherButtonTitles:nil];
     [alert show];
 }
 
