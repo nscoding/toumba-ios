@@ -19,8 +19,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+#if !APPSTORE
     [TestFlight takeOff:@"83c7de9f-c594-43e5-b2cb-12c2fa57da1e"];
-
+#endif
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[TMViewController alloc] initWithNibName:@"TMViewController" bundle:nil];

@@ -85,12 +85,11 @@
 
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error
-{
-    
+{    
     NSString *errorType = (error.code == kCLErrorDenied) ? @"Access Denied" : @"Unknown Error";
     UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle:@"Error getting Location"
-                          message:errorType
+                          initWithTitle:errorType
+                          message:@"There was an error retrieving your location"
                           delegate:nil
                           cancelButtonTitle:@"Dismiss"
                           otherButtonTitles:nil];
