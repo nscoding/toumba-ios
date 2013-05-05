@@ -100,7 +100,7 @@
     label.shadowColor = [UIColor colorWithWhite:0.3 alpha:1.0];
     label.shadowOffset = CGSizeMake(0, 1);
     label.textAlignment = NSTextAlignmentCenter;
-    label.text =  @"Made in Berlin for PAOK with Love\n❝Patrick Chamelo❞";
+    label.text =  @"Made in Berlin for PAOK with Love\n❝Patrick - Vasileia❞";
     label.numberOfLines = 0;
     
     [label sizeToFit];
@@ -108,11 +108,9 @@
     [label setCenter:CGPointMake(self.scrollView.contentSize.width + 20, self.scrollView.center.y)];
     [self.scrollView addSubview:label];
 
-    
     UIImageView *logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]];
     [logoView setCenter:CGPointMake((-logoView.frame.size.width / 2) + 5, self.scrollView.center.y)];
     [self.scrollView addSubview:logoView];
-
 }
 
 

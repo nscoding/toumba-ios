@@ -9,6 +9,8 @@
 #import "TMLocationHelper.h"
 #import "TMAngleCalculator.h"
 
+#import "BlockAlertView.h"
+
 
 // ------------------------------------------------------------------------------------------
 
@@ -101,14 +103,9 @@
         errorMessage = @"There was an error retrieving your location";
     }
     
-    
 
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:errorType
-                                                    message:errorMessage
-                                                   delegate:nil
-                                          cancelButtonTitle:@"Dismiss"
-                                          otherButtonTitles:nil];
-    [alert show];
+    [BlockAlertView showInfoAlertWithTitle:errorType
+                                   message:errorMessage];
 }
 
 
