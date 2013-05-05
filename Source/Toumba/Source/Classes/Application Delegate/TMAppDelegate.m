@@ -8,6 +8,7 @@
 
 #import "TMAppDelegate.h"
 #import "TMViewController.h"
+#import "BlockAlertView.h"
 
 #import "TestFlight.h"
 
@@ -19,7 +20,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
 #if !APPSTORE
     [TestFlight takeOff:@"83c7de9f-c594-43e5-b2cb-12c2fa57da1e"];
 #endif
@@ -30,6 +30,9 @@
 
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    [BlockAlertView showInfoAlertWithTitle:@"Welcome to Toumba"
+                                   message:@"Toumba is the compass pointing you in the right direction."];
     return YES;
 }
 
