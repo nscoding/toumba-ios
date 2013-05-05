@@ -31,7 +31,7 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
-    [BlockAlertView showInfoAlertWithTitle:@"Welcome to Toumba"
+    [BlockAlertView showInfoAlertWithTitle:@"Welcome to Toumba!"
                                    message:@"Toumba is the compass pointing you in the right direction."];
     return YES;
 }
