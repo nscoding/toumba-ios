@@ -55,7 +55,6 @@
 		CD8117E41736E874006F7A4A /* alert-red-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8117CE1736E874006F7A4A /* alert-red-button@2x.png */; };
 		CD8117E51736E874006F7A4A /* alert-window.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8117CF1736E874006F7A4A /* alert-window.png */; };
 		CD8117E61736E874006F7A4A /* alert-window@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8117D01736E874006F7A4A /* alert-window@2x.png */; };
-		CD8117E81736EBFF006F7A4A /* 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8117E71736EBFF006F7A4A /* 1024.png */; };
 		CD8C639717252E8D00CBDBB0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD8C639617252E8D00CBDBB0 /* libz.dylib */; };
 		CDBB8A98172F1DFF00F52D49 /* Icon57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = CDBB8A96172F1DFF00F52D49 /* Icon57x57.png */; };
 		CDBB8A99172F1DFF00F52D49 /* Icon114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = CDBB8A97172F1DFF00F52D49 /* Icon114x114.png */; };
@@ -124,7 +123,6 @@
 		CD8117CE1736E874006F7A4A /* alert-red-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-red-button@2x.png"; sourceTree = "<group>"; };
 		CD8117CF1736E874006F7A4A /* alert-window.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-window.png"; sourceTree = "<group>"; };
 		CD8117D01736E874006F7A4A /* alert-window@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-window@2x.png"; sourceTree = "<group>"; };
-		CD8117E71736EBFF006F7A4A /* 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024.png; sourceTree = "<group>"; };
 		CD8C639617252E8D00CBDBB0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CDBB8A96172F1DFF00F52D49 /* Icon57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon57x57.png; path = Toumba/Icon57x57.png; sourceTree = "<group>"; };
 		CDBB8A97172F1DFF00F52D49 /* Icon114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon114x114.png; path = Toumba/Icon114x114.png; sourceTree = "<group>"; };
@@ -150,7 +148,6 @@
 		CD7672CA172472FD00F44AC1 = {
 			isa = PBXGroup;
 			children = (
-				CD8117E71736EBFF006F7A4A /* 1024.png */,
 				CDBB8A96172F1DFF00F52D49 /* Icon57x57.png */,
 				CDBB8A97172F1DFF00F52D49 /* Icon114x114.png */,
 				CD7672DC172472FD00F44AC1 /* Toumba */,
@@ -453,7 +450,6 @@
 				CD8117E41736E874006F7A4A /* alert-red-button@2x.png in Resources */,
 				CD8117E51736E874006F7A4A /* alert-window.png in Resources */,
 				CD8117E61736E874006F7A4A /* alert-window@2x.png in Resources */,
-				CD8117E81736EBFF006F7A4A /* 1024.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
