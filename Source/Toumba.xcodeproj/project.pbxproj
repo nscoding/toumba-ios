@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD4980641737BF5A00755A19 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CD49805C1737BF5A00755A19 /* .gitignore */; };
+		CD4980651737BF5A00755A19 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = CD49805E1737BF5A00755A19 /* Appirater.m */; };
+		CD4980661737BF5A00755A19 /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD4980601737BF5A00755A19 /* AppiraterLocalizable.strings */; };
+		CD4980671737BF5A00755A19 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CD4980631737BF5A00755A19 /* README.md */; };
+		CD49806A1737C04600755A19 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4980691737C04600755A19 /* StoreKit.framework */; };
+		CD49806C1737C04A00755A19 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD49806B1737C04A00755A19 /* CFNetwork.framework */; };
+		CD49806E1737C05200755A19 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD49806D1737C05200755A19 /* SystemConfiguration.framework */; };
 		CD7672D7172472FD00F44AC1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7672D6172472FD00F44AC1 /* UIKit.framework */; };
 		CD7672D9172472FD00F44AC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7672D8172472FD00F44AC1 /* Foundation.framework */; };
 		CD7672DB172472FD00F44AC1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7672DA172472FD00F44AC1 /* CoreGraphics.framework */; };
@@ -61,6 +68,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD49805C1737BF5A00755A19 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		CD49805D1737BF5A00755A19 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
+		CD49805E1737BF5A00755A19 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
+		CD49805F1737BF5A00755A19 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
+		CD4980611737BF5A00755A19 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/AppiraterLocalizable.strings; sourceTree = "<group>"; };
+		CD4980621737BF5A00755A19 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AppiraterLocalizable.strings; sourceTree = "<group>"; };
+		CD4980631737BF5A00755A19 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		CD4980691737C04600755A19 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		CD49806B1737C04A00755A19 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		CD49806D1737C05200755A19 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CD7672D3172472FD00F44AC1 /* Toumba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toumba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD7672D6172472FD00F44AC1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CD7672D8172472FD00F44AC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -133,6 +150,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD49806E1737C05200755A19 /* SystemConfiguration.framework in Frameworks */,
+				CD49806C1737C04A00755A19 /* CFNetwork.framework in Frameworks */,
+				CD49806A1737C04600755A19 /* StoreKit.framework in Frameworks */,
 				CD8C639717252E8D00CBDBB0 /* libz.dylib in Frameworks */,
 				CD7673311724812500F44AC1 /* CoreLocation.framework in Frameworks */,
 				CD7672D7172472FD00F44AC1 /* UIKit.framework in Frameworks */,
@@ -145,6 +165,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD49805B1737BF5A00755A19 /* Appirater */ = {
+			isa = PBXGroup;
+			children = (
+				CD49805C1737BF5A00755A19 /* .gitignore */,
+				CD49805D1737BF5A00755A19 /* Appirater.h */,
+				CD49805E1737BF5A00755A19 /* Appirater.m */,
+				CD49805F1737BF5A00755A19 /* AppiraterDelegate.h */,
+				CD4980601737BF5A00755A19 /* AppiraterLocalizable.strings */,
+				CD4980631737BF5A00755A19 /* README.md */,
+			);
+			path = Appirater;
+			sourceTree = "<group>";
+		};
 		CD7672CA172472FD00F44AC1 = {
 			isa = PBXGroup;
 			children = (
@@ -167,10 +200,13 @@
 		CD7672D5172472FD00F44AC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CD8C639617252E8D00CBDBB0 /* libz.dylib */,
+				CD49806B1737C04A00755A19 /* CFNetwork.framework */,
 				CD7672DA172472FD00F44AC1 /* CoreGraphics.framework */,
 				CD7673301724812400F44AC1 /* CoreLocation.framework */,
 				CD7672D8172472FD00F44AC1 /* Foundation.framework */,
+				CD8C639617252E8D00CBDBB0 /* libz.dylib */,
+				CD4980691737C04600755A19 /* StoreKit.framework */,
+				CD49806D1737C05200755A19 /* SystemConfiguration.framework */,
 				CD7672D6172472FD00F44AC1 /* UIKit.framework */,
 			);
 			name = Frameworks;
@@ -293,6 +329,7 @@
 		CD76737A17252A3E00F44AC1 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				CD49805B1737BF5A00755A19 /* Appirater */,
 				CD8117A71736E445006F7A4A /* Block Alert */,
 				CD76737B17252A3F00F44AC1 /* libTestFlight.a */,
 				CD76737C17252A3F00F44AC1 /* TestFlight.h */,
@@ -399,6 +436,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				el,
 			);
 			mainGroup = CD7672CA172472FD00F44AC1;
 			productRefGroup = CD7672D4172472FD00F44AC1 /* Products */;
@@ -450,6 +488,9 @@
 				CD8117E41736E874006F7A4A /* alert-red-button@2x.png in Resources */,
 				CD8117E51736E874006F7A4A /* alert-window.png in Resources */,
 				CD8117E61736E874006F7A4A /* alert-window@2x.png in Resources */,
+				CD4980641737BF5A00755A19 /* .gitignore in Resources */,
+				CD4980661737BF5A00755A19 /* AppiraterLocalizable.strings in Resources */,
+				CD4980671737BF5A00755A19 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,10 +511,23 @@
 				CD8117B51736E445006F7A4A /* BlockBackground.m in Sources */,
 				CD8117B61736E445006F7A4A /* BlockTableAlertView.m in Sources */,
 				CD8117B71736E445006F7A4A /* BlockTextPromptAlertView.m in Sources */,
+				CD4980651737BF5A00755A19 /* Appirater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CD4980601737BF5A00755A19 /* AppiraterLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD4980611737BF5A00755A19 /* el */,
+				CD4980621737BF5A00755A19 /* en */,
+			);
+			name = AppiraterLocalizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CD7672F4172472FD00F44AC1 /* Development */ = {
@@ -539,6 +593,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Patrick CHAMELO (4S7SPYVR8G)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Patrick CHAMELO (4S7SPYVR8G)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Toumba/Toumba-Prefix.pch";
 				INFOPLIST_FILE = "Toumba/Toumba-Info.plist";
@@ -550,6 +605,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "33B4EA89-F35C-4754-B1BD-5C278A3B15EE";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "33B4EA89-F35C-4754-B1BD-5C278A3B15EE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Development;
@@ -603,6 +659,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Patrick CHAMELO";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Patrick CHAMELO";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Toumba/Toumba-Prefix.pch";
 				INFOPLIST_FILE = "Toumba/Toumba-Info.plist";
@@ -613,7 +670,8 @@
 					"\"$(SRCROOT)/Toumba/Source/Assets/Libraries\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "23A31F51-23B8-4E2C-AD93-9A8D7DEE2FAD";
+				PROVISIONING_PROFILE = "6F47909C-BABA-4C97-AAC7-25457336D41C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6F47909C-BABA-4C97-AAC7-25457336D41C";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Adhoc;
