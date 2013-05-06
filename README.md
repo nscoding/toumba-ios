@@ -5,4 +5,4 @@ With this Toumba compass you can easily locate PAOK stadium from anywhere in the
 
 - **Development**: Patrik - Tomas Chamelo
 
-[<img src="Statistique.jpg">](http://nscoding.co.uk)
+[<img src="Toumba.png">](http://nscoding.co.uk)
