@@ -103,9 +103,16 @@
         errorMessage = @"There was an error retrieving your location";
     }
     
-
-    [BlockAlertView showInfoAlertWithTitle:errorType
-                                   message:errorMessage];
+    if (showsAlert == NO)
+    {
+        showsAlert = YES;
+        BlockAlertView *alertView = [BlockAlertView alertWithTitle:errorType message:errorMessage];
+        [alertView setCancelButtonWithTitle:NSLocalizedString(@"Dismiss", nil)
+                                      block:^{
+                                          showsAlert = NO;
+                                      }];
+        [alertView show];
+    }
 }
 
 

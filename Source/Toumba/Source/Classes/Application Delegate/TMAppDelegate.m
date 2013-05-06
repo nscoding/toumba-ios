@@ -10,6 +10,7 @@
 #import "TMViewController.h"
 #import "BlockAlertView.h"
 
+#import "Appirater.h"
 #import "TestFlight.h"
 
 
@@ -31,8 +32,39 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
-    [BlockAlertView showInfoAlertWithTitle:@"Welcome to Toumba!"
-                                   message:@"Toumba is the compass pointing you in the right direction."];
+    
+    [Appirater setAppId:@"424742506"];
+    [Appirater setDaysUntilPrompt:3];
+    [Appirater setUsesUntilPrompt:3];
+    [Appirater setSignificantEventsUntilPrompt:-1];
+    [Appirater setTimeBeforeReminding:3];
+    [Appirater setUsesAnimation:YES];
+    
+#if !APPSTORE
+    [Appirater setDebug:YES];
+#else
+    [Appirater setDebug:NO];
+#endif
+    
+    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Welcome to Toumba!"
+                                                   message:@"Toumba is the compass pointing you in the right direction."];
+    
+    [alert setCancelButtonWithTitle:@"Enjoy!"
+                              block:^{
+                                  
+                                  double delayInSeconds = 1.0;
+                                  dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW,
+                                                                          (int64_t)(delayInSeconds * NSEC_PER_SEC));
+                                  
+                                  dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                                      
+                                      [Appirater appLaunched:YES];
+                                      
+                                  });
+                              }];
+    
+    [alert show];
+
     return YES;
 }
 

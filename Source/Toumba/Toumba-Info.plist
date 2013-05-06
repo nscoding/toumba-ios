@@ -14,12 +14,9 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>1024.png</string>
 				<string>Icon114x114.png</string>
 				<string>Icon57x57.png</string>
 			</array>
-			<key>UIPrerenderedIcon</key>
-			<true/>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
@@ -37,8 +34,6 @@
 	<key>CFBundleVersion</key>
 	<string>2.00</string>
 	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

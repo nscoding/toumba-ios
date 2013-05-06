@@ -19,6 +19,9 @@
 
 
 @interface TMLocationHelper : NSObject <CLLocationManagerDelegate>
+{
+    BOOL showsAlert;
+}
 
 @property (strong) CLLocationManager *locationManager;
 @property (strong, readonly) CLLocation *currentLocation;
