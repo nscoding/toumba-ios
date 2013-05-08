@@ -63,6 +63,8 @@
 		CD8117E51736E874006F7A4A /* alert-window.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8117CF1736E874006F7A4A /* alert-window.png */; };
 		CD8117E61736E874006F7A4A /* alert-window@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8117D01736E874006F7A4A /* alert-window@2x.png */; };
 		CD8C639717252E8D00CBDBB0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD8C639617252E8D00CBDBB0 /* libz.dylib */; };
+		CDAF671E173A6E6200AF1FD6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDAF6719173A6E6200AF1FD6 /* Localizable.strings */; };
+		CDAF671F173A6E6200AF1FD6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDAF671C173A6E6200AF1FD6 /* Localizable.strings */; };
 		CDBB8A98172F1DFF00F52D49 /* Icon57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = CDBB8A96172F1DFF00F52D49 /* Icon57x57.png */; };
 		CDBB8A99172F1DFF00F52D49 /* Icon114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = CDBB8A97172F1DFF00F52D49 /* Icon114x114.png */; };
 /* End PBXBuildFile section */
@@ -141,6 +143,8 @@
 		CD8117CF1736E874006F7A4A /* alert-window.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-window.png"; sourceTree = "<group>"; };
 		CD8117D01736E874006F7A4A /* alert-window@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-window@2x.png"; sourceTree = "<group>"; };
 		CD8C639617252E8D00CBDBB0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		CDAF671A173A6E6200AF1FD6 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = Localizable.strings; sourceTree = "<group>"; };
+		CDAF671D173A6E6200AF1FD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		CDBB8A96172F1DFF00F52D49 /* Icon57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon57x57.png; path = Toumba/Icon57x57.png; sourceTree = "<group>"; };
 		CDBB8A97172F1DFF00F52D49 /* Icon114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon114x114.png; path = Toumba/Icon114x114.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -259,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				CD7672FF1724741F00F44AC1 /* Application Delegate */,
+				CDAF6717173A6E4F00AF1FD6 /* Application Helper */,
 				CD76732317247BC100F44AC1 /* Location Helpers */,
 				CD7673021724741F00F44AC1 /* TBMain.m */,
 			);
@@ -400,6 +405,31 @@
 			path = AlertView;
 			sourceTree = "<group>";
 		};
+		CDAF6717173A6E4F00AF1FD6 /* Application Helper */ = {
+			isa = PBXGroup;
+			children = (
+				CDAF6718173A6E6200AF1FD6 /* el.lproj */,
+				CDAF671B173A6E6200AF1FD6 /* en.lproj */,
+			);
+			path = "Application Helper";
+			sourceTree = "<group>";
+		};
+		CDAF6718173A6E6200AF1FD6 /* el.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				CDAF6719173A6E6200AF1FD6 /* Localizable.strings */,
+			);
+			path = el.lproj;
+			sourceTree = "<group>";
+		};
+		CDAF671B173A6E6200AF1FD6 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				CDAF671C173A6E6200AF1FD6 /* Localizable.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -491,6 +521,8 @@
 				CD4980641737BF5A00755A19 /* .gitignore in Resources */,
 				CD4980661737BF5A00755A19 /* AppiraterLocalizable.strings in Resources */,
 				CD4980671737BF5A00755A19 /* README.md in Resources */,
+				CDAF671E173A6E6200AF1FD6 /* Localizable.strings in Resources */,
+				CDAF671F173A6E6200AF1FD6 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +557,22 @@
 				CD4980621737BF5A00755A19 /* en */,
 			);
 			name = AppiraterLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		CDAF6719173A6E6200AF1FD6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDAF671A173A6E6200AF1FD6 /* el */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		CDAF671C173A6E6200AF1FD6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDAF671D173A6E6200AF1FD6 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

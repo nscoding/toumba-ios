@@ -27,6 +27,7 @@
 @property (strong, readonly) CLLocation *currentLocation;
 @property (weak) id<TMLocationHelperDelegate> delegate;
 
+- (NSString *)distanceToToumba;
 - (void)startTracking;
 - (void)stopTracking;
 

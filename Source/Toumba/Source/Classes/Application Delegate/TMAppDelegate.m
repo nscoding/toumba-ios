@@ -46,10 +46,11 @@
     [Appirater setDebug:NO];
 #endif
     
-    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Welcome to Toumba!"
-                                                   message:@"Toumba is the compass pointing you in the right direction."];
+
+    BlockAlertView *alert = [BlockAlertView alertWithTitle:NSLocalizedString(@"app_welcome_title", @"")
+                                                   message:NSLocalizedString(@"app_welcome_subtitle", @"")];
     
-    [alert setCancelButtonWithTitle:@"Enjoy!"
+    [alert setCancelButtonWithTitle:NSLocalizedString(@"app_enjoy", @"")
                               block:^{
                                   
                                   double delayInSeconds = 1.0;

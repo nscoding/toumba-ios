@@ -17,6 +17,7 @@
 @property (nonatomic, strong) TMLocationHelper *locationHelper;
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UILabel *footerLabel;
+@property (nonatomic, strong) UILabel *distanceLabel;
 @property (nonatomic, strong) UIImageView *compassBaseView;
 @property (nonatomic, strong) UIImageView *arrowView;
 

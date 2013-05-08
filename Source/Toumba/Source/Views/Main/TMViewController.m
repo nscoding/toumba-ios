@@ -17,6 +17,7 @@
 - (void)buildAndConfigure;
 - (void)buildAndConfigureScrollView;
 - (void)buildAndConfigureMadeWithLove;
+- (void)buildAndConfigureDistance;
 - (void)buildAndConfigureCompass;
 
 @end
@@ -68,6 +69,7 @@
     [self buildAndConfigureScrollView];
     [self buildAndConfigureMadeWithLove];
     [self buildAndConfigureCompass];
+    [self buildAndConfigureDistance];
 }
 
 
@@ -126,11 +128,33 @@
 }
 
 
+- (void)buildAndConfigureDistance
+{
+    self.distanceLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.scrollView.contentSize.width - 40, 70)];
+    self.distanceLabel.backgroundColor = [UIColor clearColor];
+    self.distanceLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
+    self.distanceLabel.textColor = [UIColor colorWithRed:0.839f green:0.839f blue:0.839f alpha:1.00f];
+    self.distanceLabel.shadowColor = [UIColor colorWithWhite:0.3 alpha:1.0];
+    self.distanceLabel.shadowOffset = CGSizeMake(0, 1);
+    self.distanceLabel.textAlignment = NSTextAlignmentCenter;
+    self.distanceLabel.text =  @"";
+    self.distanceLabel.numberOfLines = 0;
+    
+    [self.distanceLabel setCenter:CGPointMake(self.scrollView.center.x,
+                                              self.compassBaseView.frame.origin.y +
+                                              self.compassBaseView.frame.size.height + 45)];
+    [self.scrollView addSubview:self.distanceLabel];
+}
+
+
 // ------------------------------------------------------------------------------------------
 #pragma mark - Location delegates
 // ------------------------------------------------------------------------------------------
 - (void)headingForCompassDidChange:(CGFloat)headingCompass
 {
+    NSString *distance = [self.locationHelper distanceToToumba];
+    self.distanceLabel.text = distance ?: @"";
+    
     if (animatesCompass == NO)
     {
         animatesCompass = YES;
