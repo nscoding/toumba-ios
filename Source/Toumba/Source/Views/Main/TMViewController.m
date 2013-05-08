@@ -43,7 +43,6 @@
 
     // configure the views
     [self buildAndConfigure];
-    
 
     self.locationHelper = [[TMLocationHelper alloc] init];
     self.locationHelper.delegate = self;
@@ -120,10 +119,12 @@
 {
     self.compassBaseView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"compass"]];
     self.compassBaseView.center = self.scrollView.center;
+    [self.compassBaseView setCenter:CGPointMake(self.scrollView.center.x, self.scrollView.center.y - 50)];
+
     [self.scrollView addSubview:self.compassBaseView];
     
     self.arrowView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrow"]];
-    self.arrowView.center = self.scrollView.center;
+    [self.arrowView setCenter:CGPointMake(self.scrollView.center.x, self.scrollView.center.y - 50)];
     [self.scrollView addSubview:self.arrowView];
 }
 

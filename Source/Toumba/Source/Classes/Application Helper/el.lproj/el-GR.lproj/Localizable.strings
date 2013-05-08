@@ -12,3 +12,6 @@
 
 "app_dismiss" = "Παράβλεψη";
 "app_enjoy" = "Καλή διασκέδαση!";
+
+"CFBundleDisplayName" = "Τουμπα";
+"CFBundleName" = "Τουμπα";

@@ -32,20 +32,7 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
-    
-    [Appirater setAppId:@"424742506"];
-    [Appirater setDaysUntilPrompt:3];
-    [Appirater setUsesUntilPrompt:3];
-    [Appirater setSignificantEventsUntilPrompt:-1];
-    [Appirater setTimeBeforeReminding:3];
-    [Appirater setUsesAnimation:YES];
-    
-#if !APPSTORE
-    [Appirater setDebug:YES];
-#else
-    [Appirater setDebug:NO];
-#endif
-    
+    [self configureAppiRater];
 
     BlockAlertView *alert = [BlockAlertView alertWithTitle:NSLocalizedString(@"app_welcome_title", @"")
                                                    message:NSLocalizedString(@"app_welcome_subtitle", @"")];
@@ -67,6 +54,25 @@
     [alert show];
 
     return YES;
+}
+
+
+- (void)configureAppiRater
+{
+    
+    [Appirater setAppId:@"424742506"];
+    [Appirater setDaysUntilPrompt:3];
+    [Appirater setUsesUntilPrompt:3];
+    [Appirater setSignificantEventsUntilPrompt:-1];
+    [Appirater setTimeBeforeReminding:3];
+    [Appirater setUsesAnimation:YES];
+    
+#if !APPSTORE
+    [Appirater setDebug:YES];
+#else
+    [Appirater setDebug:NO];
+#endif
+    
 }
 
 

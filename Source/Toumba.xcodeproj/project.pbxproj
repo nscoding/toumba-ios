@@ -65,6 +65,7 @@
 		CD8C639717252E8D00CBDBB0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD8C639617252E8D00CBDBB0 /* libz.dylib */; };
 		CDAF671E173A6E6200AF1FD6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDAF6719173A6E6200AF1FD6 /* Localizable.strings */; };
 		CDAF671F173A6E6200AF1FD6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDAF671C173A6E6200AF1FD6 /* Localizable.strings */; };
+		CDAF6725173A7AF400AF1FD6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDAF6727173A7AF400AF1FD6 /* InfoPlist.strings */; };
 		CDBB8A98172F1DFF00F52D49 /* Icon57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = CDBB8A96172F1DFF00F52D49 /* Icon57x57.png */; };
 		CDBB8A99172F1DFF00F52D49 /* Icon114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = CDBB8A97172F1DFF00F52D49 /* Icon114x114.png */; };
 /* End PBXBuildFile section */
@@ -145,6 +146,8 @@
 		CD8C639617252E8D00CBDBB0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CDAF671A173A6E6200AF1FD6 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = Localizable.strings; sourceTree = "<group>"; };
 		CDAF671D173A6E6200AF1FD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		CDAF6726173A7AF400AF1FD6 /* el */ = {isa = PBXFileReference; lastKnownFileType = file; name = el; path = el.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CDAF6728173A7AF800AF1FD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CDBB8A96172F1DFF00F52D49 /* Icon57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon57x57.png; path = Toumba/Icon57x57.png; sourceTree = "<group>"; };
 		CDBB8A97172F1DFF00F52D49 /* Icon114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon114x114.png; path = Toumba/Icon114x114.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -230,6 +233,7 @@
 		CD7672DD172472FD00F44AC1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CDAF6727173A7AF400AF1FD6 /* InfoPlist.strings */,
 				CD7672DE172472FD00F44AC1 /* Toumba-Info.plist */,
 				CD7672E4172472FD00F44AC1 /* Toumba-Prefix.pch */,
 			);
@@ -467,6 +471,7 @@
 			knownRegions = (
 				en,
 				el,
+				"el-GR",
 			);
 			mainGroup = CD7672CA172472FD00F44AC1;
 			productRefGroup = CD7672D4172472FD00F44AC1 /* Products */;
@@ -523,6 +528,7 @@
 				CD4980671737BF5A00755A19 /* README.md in Resources */,
 				CDAF671E173A6E6200AF1FD6 /* Localizable.strings in Resources */,
 				CDAF671F173A6E6200AF1FD6 /* Localizable.strings in Resources */,
+				CDAF6725173A7AF400AF1FD6 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +579,15 @@
 				CDAF671D173A6E6200AF1FD6 /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		CDAF6727173A7AF400AF1FD6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDAF6726173A7AF400AF1FD6 /* el */,
+				CDAF6728173A7AF800AF1FD6 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
