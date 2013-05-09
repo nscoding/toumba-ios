@@ -7,6 +7,7 @@
 //
 
 #import "TMViewController.h"
+#import "TMButtonFactory.h"
 
 
 // ------------------------------------------------------------------------------------------
@@ -16,9 +17,15 @@
 
 - (void)buildAndConfigure;
 - (void)buildAndConfigureScrollView;
+
+- (void)buildAndConfigureVisitPAOKFC;
+- (void)buildAndConfigureVisitPAOKMegastore;
+- (void)buildAndConfigureCallPAOK;
+
 - (void)buildAndConfigureMadeWithLove;
 - (void)buildAndConfigureDistance;
 - (void)buildAndConfigureCompass;
+
 
 @end
 
@@ -66,6 +73,10 @@
 - (void)buildAndConfigure
 {
     [self buildAndConfigureScrollView];
+    [self buildAndConfigureLogo];
+    [self buildAndConfigureVisitPAOKFC];
+    [self buildAndConfigureVisitPAOKMegastore];
+    
     [self buildAndConfigureMadeWithLove];
     [self buildAndConfigureCompass];
     [self buildAndConfigureDistance];
@@ -84,12 +95,57 @@
     self.scrollView.showsVerticalScrollIndicator = FALSE;
     
     // set the content size
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width + 1.0f,
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width * 2,
                                              self.view.frame.size.height);
+    
+    self.scrollView.contentOffset = CGPointMake(self.view.frame.size.width, 0);
         
     // add the scroll view
     [self.view addSubview:self.scrollView];
 }
+
+
+- (void)buildAndConfigureLogo
+{
+    UIImageView *logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]];
+    [logoView setCenter:CGPointMake((self.view.frame.size.width / 2), self.scrollView.center.y - 50)];
+    [self.scrollView addSubview:logoView];
+}
+
+
+- (void)buildAndConfigureVisitPAOKFC
+{
+    UIButton *visitPAOKFC = [TMButtonFactory greyButtonForTitle:NSLocalizedString(@"button_visit_paok_fc", @"")];
+    visitPAOKFC.frame = CGRectMake(0, 0, self.view.frame.size.width - 60, 40);
+    
+    [visitPAOKFC addTarget:self
+                    action:@selector(visitPAOKFC)
+          forControlEvents:UIControlEventTouchUpInside];
+    
+    [visitPAOKFC setCenter:CGPointMake(self.view.frame.size.width / 2, self.scrollView.center.y + 120)];
+    [self.scrollView addSubview:visitPAOKFC];
+}
+
+
+- (void)buildAndConfigureVisitPAOKMegastore
+{
+    UIButton *visitMegastore = [TMButtonFactory greyButtonForTitle:NSLocalizedString(@"button_visit_paok_magastore", @"")];
+    visitMegastore.frame = CGRectMake(0, 0, self.view.frame.size.width - 60, 40);
+
+    [visitMegastore addTarget:self
+                    action:@selector(visitPAOKMegastore)
+          forControlEvents:UIControlEventTouchUpInside];
+
+    [visitMegastore setCenter:CGPointMake(self.view.frame.size.width / 2, self.scrollView.center.y + 170)];
+    [self.scrollView addSubview:visitMegastore];
+}
+
+
+- (void)buildAndConfigureCallPAOK
+{
+
+}
+
 
 
 - (void)buildAndConfigureMadeWithLove
@@ -108,10 +164,6 @@
     [label setTransform:CGAffineTransformMakeRotation(-M_PI / 2)];
     [label setCenter:CGPointMake(self.scrollView.contentSize.width + 20, self.scrollView.center.y)];
     [self.scrollView addSubview:label];
-
-    UIImageView *logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]];
-    [logoView setCenter:CGPointMake((-logoView.frame.size.width / 2) + 5, self.scrollView.center.y)];
-    [self.scrollView addSubview:logoView];
 }
 
 
@@ -119,19 +171,20 @@
 {
     self.compassBaseView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"compass"]];
     self.compassBaseView.center = self.scrollView.center;
-    [self.compassBaseView setCenter:CGPointMake(self.scrollView.center.x, self.scrollView.center.y - 50)];
+    [self.compassBaseView setCenter:CGPointMake(self.scrollView.frame.size.width * 1.5,
+                                                self.scrollView.center.y - 20)];
 
     [self.scrollView addSubview:self.compassBaseView];
     
     self.arrowView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrow"]];
-    [self.arrowView setCenter:CGPointMake(self.scrollView.center.x, self.scrollView.center.y - 50)];
+    [self.arrowView setCenter:self.compassBaseView.center];
     [self.scrollView addSubview:self.arrowView];
 }
 
 
 - (void)buildAndConfigureDistance
 {
-    self.distanceLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.scrollView.contentSize.width - 40, 70)];
+    self.distanceLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.scrollView.frame.size.width - 40, 70)];
     self.distanceLabel.backgroundColor = [UIColor clearColor];
     self.distanceLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
     self.distanceLabel.textColor = [UIColor colorWithRed:0.839f green:0.839f blue:0.839f alpha:1.00f];
@@ -141,7 +194,7 @@
     self.distanceLabel.text =  @"";
     self.distanceLabel.numberOfLines = 0;
     
-    [self.distanceLabel setCenter:CGPointMake(self.scrollView.center.x,
+    [self.distanceLabel setCenter:CGPointMake(self.scrollView.frame.size.width * 1.5,
                                               self.compassBaseView.frame.origin.y +
                                               self.compassBaseView.frame.size.height + 45)];
     [self.scrollView addSubview:self.distanceLabel];
@@ -182,6 +235,22 @@
     }
 }
 
+
+// ------------------------------------------------------------------------------------------
+#pragma mark - Actions
+// ------------------------------------------------------------------------------------------
+- (void)visitPAOKFC
+{
+    NSURL *url = [NSURL URLWithString:@"http://www.paokfc.gr"];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+
+- (void)visitPAOKMegastore
+{
+    NSURL *url = [NSURL URLWithString:@"http://www.paok-megastore.gr"];
+    [[UIApplication sharedApplication] openURL:url];
+}
 
 // ------------------------------------------------------------------------------------------
 #pragma mark - Memory Warning

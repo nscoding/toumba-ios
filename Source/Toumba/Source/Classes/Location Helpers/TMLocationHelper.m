@@ -67,6 +67,12 @@
 }
 
 
+- (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager
+{
+    return YES;
+}
+
+
 - (NSString *)distanceToToumba
 {
     CLLocation *lastRetrievedLocation = [_locationManager location];
