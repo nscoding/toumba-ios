@@ -1,0 +1,17 @@
+"app_welcome_title" = "Welcome to Toumba!";
+"app_welcome_subtitle" = "Toumba is the compass pointing you in the right direction.";
+
+"app_access_error_title" = "Access Denied";
+"app_access_error_subtitle" = "Turn on your location services in the settings app to allow \"Toumba\" to determine your location";
+
+"app_generic_error_title" = "Something went wrong";
+"app_generic_error_subtitle" = "There was an error retrieving your location";
+
+"stadium_located_$_kilometers" = "The stadium of Toumba is located %@ kilometers away";
+"stadium_located_$_miles" = "The stadium of Toumba is located %@ miles away";
+
+"app_dismiss" = "Dismiss";
+"app_enjoy" = "Enjoy!";
+
+"CFBundleDisplayName" = "Τουμπα";
+"CFBundleName" = "Τουμπα";

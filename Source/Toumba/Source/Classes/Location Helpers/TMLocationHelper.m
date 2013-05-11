@@ -55,7 +55,7 @@
     {
         [self.delegate headingForCompassDidChange:heading];
     }
-    
+        
 	CGFloat toumpaHeading =  -1.0f * [TMAngleCalculator
                                       calculateAngleWithLatitude:self.currentLocation.coordinate.latitude
                                       andLongitude:self.currentLocation.coordinate.longitude];
@@ -65,6 +65,56 @@
         [self.delegate headingForStadiumDidChange:heading - toumpaHeading];
     }
 }
+
+
+- (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager
+{
+    return YES;
+}
+
+
+- (NSString *)distanceToToumba
+{
+    CLLocation *lastRetrievedLocation = [_locationManager location];
+    NSMutableString *formattedDistance = nil;
+    
+    if (lastRetrievedLocation)
+    {
+        static NSNumberFormatter *numberFormatter;
+        
+        if (numberFormatter == nil)
+        {
+            numberFormatter = [[NSNumberFormatter alloc] init];
+            [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+            [numberFormatter setMaximumFractionDigits:2];
+            [numberFormatter setMinimumFractionDigits:0];
+        }
+        
+        CLLocation *stadium = [[CLLocation alloc] initWithLatitude:40.613708
+                                                         longitude:22.972541];
+        
+        float distance = [lastRetrievedLocation distanceFromLocation:stadium];
+        
+        BOOL isMetric = [[[NSLocale currentLocale] objectForKey:NSLocaleUsesMetricSystem] boolValue];
+
+        formattedDistance = [[NSMutableString alloc] init];
+
+        if (isMetric)
+        {
+            [formattedDistance appendFormat:NSLocalizedString(@"stadium_located_$_kilometers", @""),
+             [numberFormatter stringFromNumber:[NSNumber numberWithDouble:(distance / 1000.000f)]]];
+        }
+        else
+        {
+            [formattedDistance appendFormat:NSLocalizedString(@"stadium_located_$_miles", @""),
+             [numberFormatter stringFromNumber:[NSNumber numberWithDouble:(distance / 1609.344f)]]];
+        }
+    }
+    
+    return formattedDistance;
+}
+
+
 
 
 - (void)locationManager:(CLLocationManager *)manager
@@ -93,14 +143,13 @@
     
     if (error.code == kCLErrorDenied)
     {
-        errorType = @"Access Denied";
-        errorMessage = @"Turn on your location services in the settings app "
-                       @"to allow \"Toumba\" to determine your location";
+        errorType = NSLocalizedString(@"app_access_error_title", @"");
+        errorMessage = NSLocalizedString(@"app_access_error_subtitle", @"");
     }
     else
     {
-        errorType = @"Something went wrong";
-        errorMessage = @"There was an error retrieving your location";
+        errorType = NSLocalizedString(@"app_generic_error_title", @"");
+        errorMessage = NSLocalizedString(@"app_generic_error_subtitle", @"");
     }
     
     if (showsAlert == NO)

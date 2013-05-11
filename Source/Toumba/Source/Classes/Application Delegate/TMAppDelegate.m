@@ -32,24 +32,12 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
+    [self configureAppiRater];
+
+    BlockAlertView *alert = [BlockAlertView alertWithTitle:NSLocalizedString(@"app_welcome_title", @"")
+                                                   message:NSLocalizedString(@"app_welcome_subtitle", @"")];
     
-    [Appirater setAppId:@"424742506"];
-    [Appirater setDaysUntilPrompt:3];
-    [Appirater setUsesUntilPrompt:3];
-    [Appirater setSignificantEventsUntilPrompt:-1];
-    [Appirater setTimeBeforeReminding:3];
-    [Appirater setUsesAnimation:YES];
-    
-#if !APPSTORE
-    [Appirater setDebug:YES];
-#else
-    [Appirater setDebug:NO];
-#endif
-    
-    BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Welcome to Toumba!"
-                                                   message:@"Toumba is the compass pointing you in the right direction."];
-    
-    [alert setCancelButtonWithTitle:@"Enjoy!"
+    [alert setCancelButtonWithTitle:NSLocalizedString(@"app_enjoy", @"")
                               block:^{
                                   
                                   double delayInSeconds = 1.0;
@@ -66,6 +54,25 @@
     [alert show];
 
     return YES;
+}
+
+
+- (void)configureAppiRater
+{
+    
+    [Appirater setAppId:@"424742506"];
+    [Appirater setDaysUntilPrompt:3];
+    [Appirater setUsesUntilPrompt:3];
+    [Appirater setSignificantEventsUntilPrompt:-1];
+    [Appirater setTimeBeforeReminding:3];
+    [Appirater setUsesAnimation:YES];
+    
+#if !APPSTORE
+    [Appirater setDebug:YES];
+#else
+    [Appirater setDebug:NO];
+#endif
+    
 }
 
 
