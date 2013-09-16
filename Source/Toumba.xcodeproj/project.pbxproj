@@ -10,6 +10,10 @@
 		132003B317E718D100829AA0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 132003B217E718D100829AA0 /* MapKit.framework */; };
 		132003B517E721B800829AA0 /* stadiumArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 132003B417E721B800829AA0 /* stadiumArrow@2x.png */; };
 		134A0D9017E72A61009592BC /* TMMapPin.m in Sources */ = {isa = PBXBuildFile; fileRef = 134A0D8F17E72A61009592BC /* TMMapPin.m */; };
+		134A0D9217E73090009592BC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 134A0D9117E73090009592BC /* StoreKit.framework */; };
+		134A0D9417E731B8009592BC /* Icon120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 134A0D9317E731B8009592BC /* Icon120x120.png */; };
+		134A0D9817E731F0009592BC /* Icon80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 134A0D9617E731F0009592BC /* Icon80x80.png */; };
+		134A0D9A17E7321E009592BC /* Icon58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 134A0D9917E7321D009592BC /* Icon58x58.png */; };
 		CD4980651737BF5A00755A19 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = CD49805E1737BF5A00755A19 /* Appirater.m */; };
 		CD4980661737BF5A00755A19 /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD4980601737BF5A00755A19 /* AppiraterLocalizable.strings */; };
 		CD4980671737BF5A00755A19 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CD4980631737BF5A00755A19 /* README.md */; };
@@ -49,8 +53,6 @@
 		CDAF671E173A6E6200AF1FD6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDAF6719173A6E6200AF1FD6 /* Localizable.strings */; };
 		CDAF671F173A6E6200AF1FD6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDAF671C173A6E6200AF1FD6 /* Localizable.strings */; };
 		CDAF6725173A7AF400AF1FD6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDAF6727173A7AF400AF1FD6 /* InfoPlist.strings */; };
-		CDBB8A98172F1DFF00F52D49 /* Icon57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = CDBB8A96172F1DFF00F52D49 /* Icon57x57.png */; };
-		CDBB8A99172F1DFF00F52D49 /* Icon114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = CDBB8A97172F1DFF00F52D49 /* Icon114x114.png */; };
 		CDDF5168173B9F9E008238EB /* GRBlackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CDDF5164173B9F9E008238EB /* GRBlackButton.png */; };
 		CDDF5169173B9F9E008238EB /* GRBlackButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDDF5165173B9F9E008238EB /* GRBlackButton@2x.png */; };
 		CDDF516A173B9F9E008238EB /* GRBlackButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = CDDF5166173B9F9E008238EB /* GRBlackButtonHighlight.png */; };
@@ -62,6 +64,10 @@
 		132003B417E721B800829AA0 /* stadiumArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stadiumArrow@2x.png"; sourceTree = "<group>"; };
 		134A0D8E17E72A61009592BC /* TMMapPin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMMapPin.h; sourceTree = "<group>"; };
 		134A0D8F17E72A61009592BC /* TMMapPin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMMapPin.m; sourceTree = "<group>"; };
+		134A0D9117E73090009592BC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		134A0D9317E731B8009592BC /* Icon120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon120x120.png; sourceTree = "<group>"; };
+		134A0D9617E731F0009592BC /* Icon80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon80x80.png; sourceTree = "<group>"; };
+		134A0D9917E7321D009592BC /* Icon58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon58x58.png; sourceTree = "<group>"; };
 		CD49805D1737BF5A00755A19 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		CD49805E1737BF5A00755A19 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		CD49805F1737BF5A00755A19 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
@@ -114,8 +120,6 @@
 		CDAF671D173A6E6200AF1FD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		CDAF6726173A7AF400AF1FD6 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CDAF6728173A7AF800AF1FD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CDBB8A96172F1DFF00F52D49 /* Icon57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon57x57.png; path = Toumba/Icon57x57.png; sourceTree = "<group>"; };
-		CDBB8A97172F1DFF00F52D49 /* Icon114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon114x114.png; path = Toumba/Icon114x114.png; sourceTree = "<group>"; };
 		CDDF5164173B9F9E008238EB /* GRBlackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GRBlackButton.png; sourceTree = "<group>"; };
 		CDDF5165173B9F9E008238EB /* GRBlackButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GRBlackButton@2x.png"; sourceTree = "<group>"; };
 		CDDF5166173B9F9E008238EB /* GRBlackButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GRBlackButtonHighlight.png; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				134A0D9217E73090009592BC /* StoreKit.framework in Frameworks */,
 				132003B317E718D100829AA0 /* MapKit.framework in Frameworks */,
 				CD49806E1737C05200755A19 /* SystemConfiguration.framework in Frameworks */,
 				CD49806C1737C04A00755A19 /* CFNetwork.framework in Frameworks */,
@@ -157,8 +162,9 @@
 		CD7672CA172472FD00F44AC1 = {
 			isa = PBXGroup;
 			children = (
-				CDBB8A96172F1DFF00F52D49 /* Icon57x57.png */,
-				CDBB8A97172F1DFF00F52D49 /* Icon114x114.png */,
+				134A0D9917E7321D009592BC /* Icon58x58.png */,
+				134A0D9617E731F0009592BC /* Icon80x80.png */,
+				134A0D9317E731B8009592BC /* Icon120x120.png */,
 				CD7672DC172472FD00F44AC1 /* Toumba */,
 				CD7672D5172472FD00F44AC1 /* Frameworks */,
 				CD7672D4172472FD00F44AC1 /* Products */,
@@ -176,6 +182,7 @@
 		CD7672D5172472FD00F44AC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				134A0D9117E73090009592BC /* StoreKit.framework */,
 				132003B217E718D100829AA0 /* MapKit.framework */,
 				CD49806B1737C04A00755A19 /* CFNetwork.framework */,
 				CD7672DA172472FD00F44AC1 /* CoreGraphics.framework */,
@@ -444,14 +451,14 @@
 				CD76731F1724782600F44AC1 /* arrow.png in Resources */,
 				CD7673201724782600F44AC1 /* arrow@2x.png in Resources */,
 				CD7673211724782600F44AC1 /* compass.png in Resources */,
+				134A0D9417E731B8009592BC /* Icon120x120.png in Resources */,
 				CD7673221724782600F44AC1 /* compass@2x.png in Resources */,
 				CD7673331724881F00F44AC1 /* logo.png in Resources */,
-				CDBB8A98172F1DFF00F52D49 /* Icon57x57.png in Resources */,
-				CDBB8A99172F1DFF00F52D49 /* Icon114x114.png in Resources */,
 				132003B517E721B800829AA0 /* stadiumArrow@2x.png in Resources */,
 				CD4980661737BF5A00755A19 /* AppiraterLocalizable.strings in Resources */,
 				CD4980671737BF5A00755A19 /* README.md in Resources */,
 				CDAF671E173A6E6200AF1FD6 /* Localizable.strings in Resources */,
+				134A0D9817E731F0009592BC /* Icon80x80.png in Resources */,
 				CDAF671F173A6E6200AF1FD6 /* Localizable.strings in Resources */,
 				CDAF6725173A7AF400AF1FD6 /* InfoPlist.strings in Resources */,
 				CD769A8B173AECAD004C6A6E /* GRGreenButton.png in Resources */,
@@ -462,6 +469,7 @@
 				CD769A90173AECAD004C6A6E /* GRGreyButton@2x.png in Resources */,
 				CD769A91173AECAD004C6A6E /* GRGreyButtonHighlight.png in Resources */,
 				CD769A92173AECAD004C6A6E /* GRGreyButtonHighlight@2x.png in Resources */,
+				134A0D9A17E7321E009592BC /* Icon58x58.png in Resources */,
 				CDDF5168173B9F9E008238EB /* GRBlackButton.png in Resources */,
 				CDDF5169173B9F9E008238EB /* GRBlackButton@2x.png in Resources */,
 				CDDF516A173B9F9E008238EB /* GRBlackButtonHighlight.png in Resources */,

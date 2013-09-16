@@ -66,6 +66,8 @@
     // reset in tracker
     [self.locationHelper stopTracking];
     [self.locationHelper startTracking];
+    
+    [self fakeDistance];
 }
 
 
@@ -123,13 +125,14 @@
 
 	[mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading
                         animated:YES];
+    [mapView setCenterCoordinate:mapView.userLocation.coordinate animated:YES];
 
     CLLocation *stadium = [[CLLocation alloc] initWithLatitude:40.613708
                                                      longitude:22.972541];
 
     TMMapPin *toumbaAnnotation = [[TMMapPin alloc] initWithCoordinates:stadium.coordinate
                                                                  title:NSLocalizedString(@"stadium", nil)
-                                                              subTitle:NSLocalizedString(@"6 September 1959", nil)];
+                                                              subTitle:NSLocalizedString(@"stadium_date", nil)];
     [mapView addAnnotation:toumbaAnnotation];
 
 	
@@ -174,6 +177,29 @@
     [self.scrollView addSubview:self.arrowView];
 }
 
+- (void)fakeDistance
+{
+#if (TARGET_IPHONE_SIMULATOR)
+    self.compassBaseView.transform = CGAffineTransformMakeRotation(30);
+    self.arrowView.transform = CGAffineTransformMakeRotation(10);
+
+    NSMutableString *formattedDistance = [[NSMutableString alloc] init];
+    
+    static NSNumberFormatter *numberFormatter;
+    
+    if (numberFormatter == nil)
+    {
+        numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        [numberFormatter setMaximumFractionDigits:2];
+        [numberFormatter setMinimumFractionDigits:0];
+    }
+    
+    [formattedDistance appendFormat:NSLocalizedString(@"stadium_located_$_kilometers", @""),
+     [numberFormatter stringFromNumber:[NSNumber numberWithDouble:(1234354 / 1000.000f)]]];
+    [self.distanceLabel setText:formattedDistance];
+#endif
+}
 
 - (void)buildAndConfigureDistance
 {
