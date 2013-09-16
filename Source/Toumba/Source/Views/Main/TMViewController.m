@@ -22,6 +22,7 @@
 - (void)buildAndConfigure;
 - (void)buildAndConfigureScrollView;
 
+- (void)buildAndConfigureStory;
 - (void)buildAndConfigureMap;
 - (void)buildAndConfigureMadeWithLove;
 - (void)buildAndConfigureDistance;
@@ -83,18 +84,19 @@
 {
     [self buildAndConfigureScrollView];
     [self buildAndConfigureMap];
-    
     [self buildAndConfigureMadeWithLove];
     [self buildAndConfigureCompass];
     [self buildAndConfigureDistance];
+    [self buildAndConfigureStory];
 }
 
 
 - (void)buildAndConfigureScrollView
 {
     // create the scroll view
-    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 20,
+                                                                     self.view.bounds.size.width,
+                                                                     self.view.bounds.size.height)];
     // set the properties
     self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;
@@ -102,7 +104,7 @@
     self.scrollView.showsVerticalScrollIndicator = FALSE;
     
     // set the content size
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width * 2,
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width * 3,
                                              self.view.frame.size.height);
     
     self.scrollView.contentOffset = CGPointMake(self.view.frame.size.width, 0);
@@ -114,7 +116,7 @@
 
 - (void)buildAndConfigureMap
 {
-    MKMapView *mapView = [[MKMapView alloc] initWithFrame:CGRectMake(30, 70,
+    MKMapView *mapView = [[MKMapView alloc] initWithFrame:CGRectMake(30, 60,
                                                                      self.view.frame.size.width - 60,
                                                                      self.view.frame.size.height - 120)];
     
@@ -168,7 +170,7 @@
     self.compassBaseView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"compass"]];
     self.compassBaseView.center = self.scrollView.center;
     [self.compassBaseView setCenter:CGPointMake(self.scrollView.frame.size.width * 1.5,
-                                                self.scrollView.center.y - 10)];
+                                                self.scrollView.center.y - 40)];
 
     [self.scrollView addSubview:self.compassBaseView];
     
@@ -177,29 +179,6 @@
     [self.scrollView addSubview:self.arrowView];
 }
 
-- (void)fakeDistance
-{
-#if (TARGET_IPHONE_SIMULATOR)
-    self.compassBaseView.transform = CGAffineTransformMakeRotation(30);
-    self.arrowView.transform = CGAffineTransformMakeRotation(10);
-
-    NSMutableString *formattedDistance = [[NSMutableString alloc] init];
-    
-    static NSNumberFormatter *numberFormatter;
-    
-    if (numberFormatter == nil)
-    {
-        numberFormatter = [[NSNumberFormatter alloc] init];
-        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-        [numberFormatter setMaximumFractionDigits:2];
-        [numberFormatter setMinimumFractionDigits:0];
-    }
-    
-    [formattedDistance appendFormat:NSLocalizedString(@"stadium_located_$_kilometers", @""),
-     [numberFormatter stringFromNumber:[NSNumber numberWithDouble:(1234354 / 1000.000f)]]];
-    [self.distanceLabel setText:formattedDistance];
-#endif
-}
 
 - (void)buildAndConfigureDistance
 {
@@ -217,6 +196,51 @@
                                               self.compassBaseView.frame.origin.y +
                                               self.compassBaseView.frame.size.height + 45)];
     [self.scrollView addSubview:self.distanceLabel];
+}
+
+
+- (void)buildAndConfigureStory
+{
+    self.historyTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0,
+                                                                       self.scrollView.frame.size.width - 40,
+                                                                       self.scrollView.frame.size.height)];
+    [self.historyTextView setCenter:CGPointMake(self.scrollView.frame.size.width * 2.5,
+                                                self.scrollView.center.y - 20)];
+    
+    self.historyTextView.frame = CGRectMake(floorf(self.historyTextView.frame.origin.x),
+                                            floorf(self.historyTextView.frame.origin.y),
+                                            self.historyTextView.frame.size.width,
+                                            self.historyTextView.frame.size.height);
+    self.historyTextView.backgroundColor = [UIColor clearColor];
+    self.historyTextView.textColor = [UIColor whiteColor];
+    
+    self.historyTextView.text = NSLocalizedString(@"stadium_info", nil);
+    [self.scrollView addSubview:self.historyTextView];
+}
+
+
+- (void)fakeDistance
+{
+#if (TARGET_IPHONE_SIMULATOR)
+    self.compassBaseView.transform = CGAffineTransformMakeRotation(30);
+    self.arrowView.transform = CGAffineTransformMakeRotation(10);
+    
+    NSMutableString *formattedDistance = [[NSMutableString alloc] init];
+    
+    static NSNumberFormatter *numberFormatter;
+    
+    if (numberFormatter == nil)
+    {
+        numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        [numberFormatter setMaximumFractionDigits:2];
+        [numberFormatter setMinimumFractionDigits:0];
+    }
+    
+    [formattedDistance appendFormat:NSLocalizedString(@"stadium_located_$_kilometers", @""),
+     [numberFormatter stringFromNumber:[NSNumber numberWithDouble:(1234354 / 1000.000f)]]];
+    [self.distanceLabel setText:formattedDistance];
+#endif
 }
 
 
