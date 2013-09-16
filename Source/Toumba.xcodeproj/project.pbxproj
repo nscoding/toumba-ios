@@ -560,9 +560,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "65E21223-C005-4E89-8836-120DD4D453B5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Development;
@@ -586,9 +586,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "22293986-1D6E-46AB-ACAD-A87402140CE8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -597,8 +597,8 @@
 		CD7672F7172472FD00F44AC1 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Patrick CHAMELO";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Patrick CHAMELO";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Toumba/Toumba-Prefix.pch";
 				INFOPLIST_FILE = "Toumba/Toumba-Info.plist";
@@ -609,8 +609,8 @@
 					"\"$(SRCROOT)/Toumba/Source/Assets/Libraries\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "33B4EA89-F35C-4754-B1BD-5C278A3B15EE";
+				PROVISIONING_PROFILE = "B26AE8CF-D390-4ADC-9E67-66FDA48749E1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B26AE8CF-D390-4ADC-9E67-66FDA48749E1";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Development;
@@ -618,8 +618,8 @@
 		CD7672F8172472FD00F44AC1 /* App Store */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Patrick CHAMELO";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Patrick CHAMELO";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Toumba/Toumba-Prefix.pch";
 				INFOPLIST_FILE = "Toumba/Toumba-Info.plist";
@@ -630,7 +630,7 @@
 					"\"$(SRCROOT)/Toumba/Source/Assets/Libraries\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "22293986-1D6E-46AB-ACAD-A87402140CE8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = "App Store";
@@ -653,9 +653,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "23A31F51-23B8-4E2C-AD93-9A8D7DEE2FAD";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -664,8 +664,8 @@
 		CD76737F17252D6B00F44AC1 /* Adhoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Patrick CHAMELO";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Patrick CHAMELO";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Toumba/Toumba-Prefix.pch";
 				INFOPLIST_FILE = "Toumba/Toumba-Info.plist";
@@ -676,8 +676,8 @@
 					"\"$(SRCROOT)/Toumba/Source/Assets/Libraries\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6F47909C-BABA-4C97-AAC7-25457336D41C";
+				PROVISIONING_PROFILE = "A045D192-FEC6-4C22-B207-09EE0A18EBDC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A045D192-FEC6-4C22-B207-09EE0A18EBDC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Adhoc;
