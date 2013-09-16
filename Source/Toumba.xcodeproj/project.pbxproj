@@ -14,6 +14,9 @@
 		134A0D9417E731B8009592BC /* Icon120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 134A0D9317E731B8009592BC /* Icon120x120.png */; };
 		134A0D9817E731F0009592BC /* Icon80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 134A0D9617E731F0009592BC /* Icon80x80.png */; };
 		134A0D9A17E7321E009592BC /* Icon58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 134A0D9917E7321D009592BC /* Icon58x58.png */; };
+		13EEFD0617E7426300587F89 /* Icon54x54.png in Resources */ = {isa = PBXBuildFile; fileRef = 13EEFD0317E7426300587F89 /* Icon54x54.png */; };
+		13EEFD0717E7426300587F89 /* Icon57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 13EEFD0417E7426300587F89 /* Icon57x57.png */; };
+		13EEFD0817E7426300587F89 /* Icon114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 13EEFD0517E7426300587F89 /* Icon114x114.png */; };
 		CD4980651737BF5A00755A19 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = CD49805E1737BF5A00755A19 /* Appirater.m */; };
 		CD4980661737BF5A00755A19 /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD4980601737BF5A00755A19 /* AppiraterLocalizable.strings */; };
 		CD4980671737BF5A00755A19 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CD4980631737BF5A00755A19 /* README.md */; };
@@ -68,6 +71,9 @@
 		134A0D9317E731B8009592BC /* Icon120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon120x120.png; sourceTree = "<group>"; };
 		134A0D9617E731F0009592BC /* Icon80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon80x80.png; sourceTree = "<group>"; };
 		134A0D9917E7321D009592BC /* Icon58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon58x58.png; sourceTree = "<group>"; };
+		13EEFD0317E7426300587F89 /* Icon54x54.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon54x54.png; sourceTree = "<group>"; };
+		13EEFD0417E7426300587F89 /* Icon57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon57x57.png; sourceTree = "<group>"; };
+		13EEFD0517E7426300587F89 /* Icon114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon114x114.png; sourceTree = "<group>"; };
 		CD49805D1737BF5A00755A19 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		CD49805E1737BF5A00755A19 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		CD49805F1737BF5A00755A19 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
@@ -162,6 +168,9 @@
 		CD7672CA172472FD00F44AC1 = {
 			isa = PBXGroup;
 			children = (
+				13EEFD0317E7426300587F89 /* Icon54x54.png */,
+				13EEFD0417E7426300587F89 /* Icon57x57.png */,
+				13EEFD0517E7426300587F89 /* Icon114x114.png */,
 				134A0D9917E7321D009592BC /* Icon58x58.png */,
 				134A0D9617E731F0009592BC /* Icon80x80.png */,
 				134A0D9317E731B8009592BC /* Icon120x120.png */,
@@ -444,6 +453,7 @@
 			files = (
 				CD7673081724741F00F44AC1 /* Default-568h@2x.png in Resources */,
 				CD7673091724741F00F44AC1 /* Default.png in Resources */,
+				13EEFD0817E7426300587F89 /* Icon114x114.png in Resources */,
 				CD76730A1724741F00F44AC1 /* Default@2x.png in Resources */,
 				CD76730E1724741F00F44AC1 /* TMViewController.xib in Resources */,
 				CD7673181724776A00F44AC1 /* Pattern.png in Resources */,
@@ -455,6 +465,7 @@
 				CD7673221724782600F44AC1 /* compass@2x.png in Resources */,
 				CD7673331724881F00F44AC1 /* logo.png in Resources */,
 				132003B517E721B800829AA0 /* stadiumArrow@2x.png in Resources */,
+				13EEFD0617E7426300587F89 /* Icon54x54.png in Resources */,
 				CD4980661737BF5A00755A19 /* AppiraterLocalizable.strings in Resources */,
 				CD4980671737BF5A00755A19 /* README.md in Resources */,
 				CDAF671E173A6E6200AF1FD6 /* Localizable.strings in Resources */,
@@ -474,6 +485,7 @@
 				CDDF5169173B9F9E008238EB /* GRBlackButton@2x.png in Resources */,
 				CDDF516A173B9F9E008238EB /* GRBlackButtonHighlight.png in Resources */,
 				CDDF516B173B9F9E008238EB /* GRBlackButtonHighlight@2x.png in Resources */,
+				13EEFD0717E7426300587F89 /* Icon57x57.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
