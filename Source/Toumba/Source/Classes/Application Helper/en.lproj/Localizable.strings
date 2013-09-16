@@ -9,6 +9,8 @@
 
 "stadium_located_$_kilometers" = "The stadium of Toumba is located %@ kilometers away";
 "stadium_located_$_miles" = "The stadium of Toumba is located %@ miles away";
+"stadium" = "Toumba stadium";
+"stadium_date" = "6th of September 1959";
 
 "app_dismiss" = "Dismiss";
 "app_enjoy" = "Enjoy!";

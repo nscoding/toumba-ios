@@ -128,8 +128,8 @@
                                                      longitude:22.972541];
 
     TMMapPin *toumbaAnnotation = [[TMMapPin alloc] initWithCoordinates:stadium.coordinate
-                                                                 title:@"Toumba Stadium"
-                                                              subTitle:@""];
+                                                                 title:NSLocalizedString(@"stadium", nil)
+                                                              subTitle:NSLocalizedString(@"6 September 1959", nil)];
     [mapView addAnnotation:toumbaAnnotation];
 
 	
