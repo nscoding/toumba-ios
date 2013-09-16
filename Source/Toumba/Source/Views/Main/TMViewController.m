@@ -8,20 +8,21 @@
 
 #import "TMViewController.h"
 #import "TMButtonFactory.h"
+#import "TMAngleCalculator.h"
+#import "TMMapPin.h"
+
+#import <MapKit/MapKit.h>
 
 
 // ------------------------------------------------------------------------------------------
 
 
-@interface TMViewController ()
+@interface TMViewController () <MKMapViewDelegate>
 
 - (void)buildAndConfigure;
 - (void)buildAndConfigureScrollView;
 
-- (void)buildAndConfigureVisitPAOKFC;
-- (void)buildAndConfigureVisitPAOKMegastore;
-- (void)buildAndConfigureCallPAOK;
-
+- (void)buildAndConfigureMap;
 - (void)buildAndConfigureMadeWithLove;
 - (void)buildAndConfigureDistance;
 - (void)buildAndConfigureCompass;
@@ -47,7 +48,8 @@
 
     // set the background color
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Pattern"]];
-
+    [self setNeedsStatusBarAppearanceUpdate];
+    
     // configure the views
     [self buildAndConfigure];
 
@@ -67,15 +69,18 @@
 }
 
 
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 // ------------------------------------------------------------------------------------------
 #pragma mark - Build and Configure
 // ------------------------------------------------------------------------------------------
 - (void)buildAndConfigure
 {
     [self buildAndConfigureScrollView];
-    [self buildAndConfigureLogo];
-    [self buildAndConfigureVisitPAOKFC];
-    [self buildAndConfigureVisitPAOKMegastore];
+    [self buildAndConfigureMap];
     
     [self buildAndConfigureMadeWithLove];
     [self buildAndConfigureCompass];
@@ -105,47 +110,35 @@
 }
 
 
-- (void)buildAndConfigureLogo
+- (void)buildAndConfigureMap
 {
-    UIImageView *logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]];
-    [logoView setCenter:CGPointMake((self.view.frame.size.width / 2), self.scrollView.center.y - 50)];
-    [self.scrollView addSubview:logoView];
-}
-
-
-- (void)buildAndConfigureVisitPAOKFC
-{
-    UIButton *visitPAOKFC = [TMButtonFactory greyButtonForTitle:NSLocalizedString(@"button_visit_paok_fc", @"")];
-    visitPAOKFC.frame = CGRectMake(0, 0, self.view.frame.size.width - 60, 40);
+    MKMapView *mapView = [[MKMapView alloc] initWithFrame:CGRectMake(30, 70,
+                                                                     self.view.frame.size.width - 60,
+                                                                     self.view.frame.size.height - 120)];
     
-    [visitPAOKFC addTarget:self
-                    action:@selector(visitPAOKFC)
-          forControlEvents:UIControlEventTouchUpInside];
+    mapView.layer.cornerRadius = 6.0f;
+    mapView.layer.borderWidth = 1.0f;
+    mapView.delegate = self;
+    mapView.showsUserLocation = YES;
+
+	[mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading
+                        animated:YES];
+
+    CLLocation *stadium = [[CLLocation alloc] initWithLatitude:40.613708
+                                                     longitude:22.972541];
+
+    TMMapPin *toumbaAnnotation = [[TMMapPin alloc] initWithCoordinates:stadium.coordinate
+                                                                 title:@"Toumba Stadium"
+                                                              subTitle:@""];
+    [mapView addAnnotation:toumbaAnnotation];
+
+	
+    self.arrowToStadium = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stadiumArrow"]];
+    [self.arrowToStadium setCenter:mapView.center];
     
-    [visitPAOKFC setCenter:CGPointMake(self.view.frame.size.width / 2, self.scrollView.center.y + 120)];
-    [self.scrollView addSubview:visitPAOKFC];
+    [self.scrollView addSubview:mapView];
+    [self.scrollView addSubview:self.arrowToStadium];
 }
-
-
-- (void)buildAndConfigureVisitPAOKMegastore
-{
-    UIButton *visitMegastore = [TMButtonFactory greyButtonForTitle:NSLocalizedString(@"button_visit_paok_magastore", @"")];
-    visitMegastore.frame = CGRectMake(0, 0, self.view.frame.size.width - 60, 40);
-
-    [visitMegastore addTarget:self
-                    action:@selector(visitPAOKMegastore)
-          forControlEvents:UIControlEventTouchUpInside];
-
-    [visitMegastore setCenter:CGPointMake(self.view.frame.size.width / 2, self.scrollView.center.y + 170)];
-    [self.scrollView addSubview:visitMegastore];
-}
-
-
-- (void)buildAndConfigureCallPAOK
-{
-
-}
-
 
 
 - (void)buildAndConfigureMadeWithLove
@@ -172,7 +165,7 @@
     self.compassBaseView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"compass"]];
     self.compassBaseView.center = self.scrollView.center;
     [self.compassBaseView setCenter:CGPointMake(self.scrollView.frame.size.width * 1.5,
-                                                self.scrollView.center.y - 20)];
+                                                self.scrollView.center.y - 10)];
 
     [self.scrollView addSubview:self.compassBaseView];
     
@@ -212,10 +205,13 @@
     if (animatesCompass == NO)
     {
         animatesCompass = YES;
-        [UIView animateWithDuration:0.5f animations:^{
+        [UIView animateWithDuration:0.5f
+                         animations:^
+        {
             self.compassBaseView.transform = CGAffineTransformMakeRotation(headingCompass);
         }
-        completion:^(BOOL finished){
+        completion:^(BOOL finished)
+        {
             animatesCompass = NO;
         }];
     }
@@ -227,13 +223,31 @@
     if (animatesArrow == NO)
     {
         animatesArrow = YES;
-        [UIView animateWithDuration:0.5f animations:^{
+        [UIView animateWithDuration:0.5f
+                         animations:^
+        {
             self.arrowView.transform = CGAffineTransformMakeRotation(headingStadium);
-        } completion:^(BOOL finished) {
+        }
+        completion:^(BOOL finished)
+        {
             animatesArrow = NO;
         }];
     }
 }
+
+
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+{
+    [UIView animateWithDuration:0.5f
+                     animations:^
+     {
+         CGFloat heading = [TMAngleCalculator calculateAngleWithLatitude:mapView.centerCoordinate.latitude
+                                                            andLongitude:mapView.centerCoordinate.longitude];
+         
+         self.arrowToStadium.transform = CGAffineTransformMakeRotation(heading);
+     }];
+}
+
 
 
 // ------------------------------------------------------------------------------------------
