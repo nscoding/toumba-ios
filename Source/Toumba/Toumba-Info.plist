@@ -14,6 +14,10 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
+				<string>Icon58x58</string>
+				<string>Icon54x54</string>
+				<string>Icon80x80</string>
+				<string>Icon120x120</string>
 				<string>Icon114x114.png</string>
 				<string>Icon57x57.png</string>
 			</array>
@@ -47,5 +51,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
 </dict>
 </plist>

@@ -8,20 +8,22 @@
 
 #import "TMViewController.h"
 #import "TMButtonFactory.h"
+#import "TMAngleCalculator.h"
+#import "TMMapPin.h"
+
+#import <MapKit/MapKit.h>
 
 
 // ------------------------------------------------------------------------------------------
 
 
-@interface TMViewController ()
+@interface TMViewController () <MKMapViewDelegate>
 
 - (void)buildAndConfigure;
 - (void)buildAndConfigureScrollView;
 
-- (void)buildAndConfigureVisitPAOKFC;
-- (void)buildAndConfigureVisitPAOKMegastore;
-- (void)buildAndConfigureCallPAOK;
-
+- (void)buildAndConfigureStory;
+- (void)buildAndConfigureMap;
 - (void)buildAndConfigureMadeWithLove;
 - (void)buildAndConfigureDistance;
 - (void)buildAndConfigureCompass;
@@ -47,7 +49,8 @@
 
     // set the background color
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Pattern"]];
-
+    [self setNeedsStatusBarAppearanceUpdate];
+    
     // configure the views
     [self buildAndConfigure];
 
@@ -64,8 +67,15 @@
     // reset in tracker
     [self.locationHelper stopTracking];
     [self.locationHelper startTracking];
+    
+    [self fakeDistance];
 }
 
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 
 // ------------------------------------------------------------------------------------------
 #pragma mark - Build and Configure
@@ -73,21 +83,20 @@
 - (void)buildAndConfigure
 {
     [self buildAndConfigureScrollView];
-    [self buildAndConfigureLogo];
-    [self buildAndConfigureVisitPAOKFC];
-    [self buildAndConfigureVisitPAOKMegastore];
-    
+    [self buildAndConfigureMap];
     [self buildAndConfigureMadeWithLove];
     [self buildAndConfigureCompass];
     [self buildAndConfigureDistance];
+    [self buildAndConfigureStory];
 }
 
 
 - (void)buildAndConfigureScrollView
 {
     // create the scroll view
-    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 20,
+                                                                     self.view.bounds.size.width,
+                                                                     self.view.bounds.size.height)];
     // set the properties
     self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;
@@ -95,7 +104,7 @@
     self.scrollView.showsVerticalScrollIndicator = FALSE;
     
     // set the content size
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width * 2,
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width * 3,
                                              self.view.frame.size.height);
     
     self.scrollView.contentOffset = CGPointMake(self.view.frame.size.width, 0);
@@ -105,47 +114,36 @@
 }
 
 
-- (void)buildAndConfigureLogo
+- (void)buildAndConfigureMap
 {
-    UIImageView *logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]];
-    [logoView setCenter:CGPointMake((self.view.frame.size.width / 2), self.scrollView.center.y - 50)];
-    [self.scrollView addSubview:logoView];
-}
-
-
-- (void)buildAndConfigureVisitPAOKFC
-{
-    UIButton *visitPAOKFC = [TMButtonFactory greyButtonForTitle:NSLocalizedString(@"button_visit_paok_fc", @"")];
-    visitPAOKFC.frame = CGRectMake(0, 0, self.view.frame.size.width - 60, 40);
+    MKMapView *mapView = [[MKMapView alloc] initWithFrame:CGRectMake(30, 60,
+                                                                     self.view.frame.size.width - 60,
+                                                                     self.view.frame.size.height - 120)];
     
-    [visitPAOKFC addTarget:self
-                    action:@selector(visitPAOKFC)
-          forControlEvents:UIControlEventTouchUpInside];
+    mapView.layer.cornerRadius = 6.0f;
+    mapView.layer.borderWidth = 1.0f;
+    mapView.delegate = self;
+    mapView.showsUserLocation = YES;
+
+	[mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading
+                        animated:YES];
+    [mapView setCenterCoordinate:mapView.userLocation.coordinate animated:YES];
+
+    CLLocation *stadium = [[CLLocation alloc] initWithLatitude:40.613708
+                                                     longitude:22.972541];
+
+    TMMapPin *toumbaAnnotation = [[TMMapPin alloc] initWithCoordinates:stadium.coordinate
+                                                                 title:NSLocalizedString(@"stadium", nil)
+                                                              subTitle:NSLocalizedString(@"stadium_date", nil)];
+    [mapView addAnnotation:toumbaAnnotation];
+
+	
+    self.arrowToStadium = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stadiumArrow"]];
+    [self.arrowToStadium setCenter:mapView.center];
     
-    [visitPAOKFC setCenter:CGPointMake(self.view.frame.size.width / 2, self.scrollView.center.y + 120)];
-    [self.scrollView addSubview:visitPAOKFC];
+    [self.scrollView addSubview:mapView];
+    [self.scrollView addSubview:self.arrowToStadium];
 }
-
-
-- (void)buildAndConfigureVisitPAOKMegastore
-{
-    UIButton *visitMegastore = [TMButtonFactory greyButtonForTitle:NSLocalizedString(@"button_visit_paok_magastore", @"")];
-    visitMegastore.frame = CGRectMake(0, 0, self.view.frame.size.width - 60, 40);
-
-    [visitMegastore addTarget:self
-                    action:@selector(visitPAOKMegastore)
-          forControlEvents:UIControlEventTouchUpInside];
-
-    [visitMegastore setCenter:CGPointMake(self.view.frame.size.width / 2, self.scrollView.center.y + 170)];
-    [self.scrollView addSubview:visitMegastore];
-}
-
-
-- (void)buildAndConfigureCallPAOK
-{
-
-}
-
 
 
 - (void)buildAndConfigureMadeWithLove
@@ -172,7 +170,7 @@
     self.compassBaseView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"compass"]];
     self.compassBaseView.center = self.scrollView.center;
     [self.compassBaseView setCenter:CGPointMake(self.scrollView.frame.size.width * 1.5,
-                                                self.scrollView.center.y - 20)];
+                                                self.scrollView.center.y - 40)];
 
     [self.scrollView addSubview:self.compassBaseView];
     
@@ -201,6 +199,51 @@
 }
 
 
+- (void)buildAndConfigureStory
+{
+    self.historyTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0,
+                                                                       self.scrollView.frame.size.width - 40,
+                                                                       self.scrollView.frame.size.height)];
+    [self.historyTextView setCenter:CGPointMake(self.scrollView.frame.size.width * 2.5,
+                                                self.scrollView.center.y - 20)];
+    
+    self.historyTextView.frame = CGRectMake(floorf(self.historyTextView.frame.origin.x),
+                                            floorf(self.historyTextView.frame.origin.y),
+                                            self.historyTextView.frame.size.width,
+                                            self.historyTextView.frame.size.height);
+    self.historyTextView.backgroundColor = [UIColor clearColor];
+    self.historyTextView.textColor = [UIColor whiteColor];
+    
+    self.historyTextView.text = NSLocalizedString(@"stadium_info", nil);
+    [self.scrollView addSubview:self.historyTextView];
+}
+
+
+- (void)fakeDistance
+{
+#if (TARGET_IPHONE_SIMULATOR)
+    self.compassBaseView.transform = CGAffineTransformMakeRotation(30);
+    self.arrowView.transform = CGAffineTransformMakeRotation(10);
+    
+    NSMutableString *formattedDistance = [[NSMutableString alloc] init];
+    
+    static NSNumberFormatter *numberFormatter;
+    
+    if (numberFormatter == nil)
+    {
+        numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        [numberFormatter setMaximumFractionDigits:2];
+        [numberFormatter setMinimumFractionDigits:0];
+    }
+    
+    [formattedDistance appendFormat:NSLocalizedString(@"stadium_located_$_kilometers", @""),
+     [numberFormatter stringFromNumber:[NSNumber numberWithDouble:(1234354 / 1000.000f)]]];
+    [self.distanceLabel setText:formattedDistance];
+#endif
+}
+
+
 // ------------------------------------------------------------------------------------------
 #pragma mark - Location delegates
 // ------------------------------------------------------------------------------------------
@@ -212,10 +255,13 @@
     if (animatesCompass == NO)
     {
         animatesCompass = YES;
-        [UIView animateWithDuration:0.5f animations:^{
+        [UIView animateWithDuration:0.5f
+                         animations:^
+        {
             self.compassBaseView.transform = CGAffineTransformMakeRotation(headingCompass);
         }
-        completion:^(BOOL finished){
+        completion:^(BOOL finished)
+        {
             animatesCompass = NO;
         }];
     }
@@ -227,13 +273,31 @@
     if (animatesArrow == NO)
     {
         animatesArrow = YES;
-        [UIView animateWithDuration:0.5f animations:^{
+        [UIView animateWithDuration:0.5f
+                         animations:^
+        {
             self.arrowView.transform = CGAffineTransformMakeRotation(headingStadium);
-        } completion:^(BOOL finished) {
+        }
+        completion:^(BOOL finished)
+        {
             animatesArrow = NO;
         }];
     }
 }
+
+
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+{
+    [UIView animateWithDuration:0.5f
+                     animations:^
+     {
+         CGFloat heading = [TMAngleCalculator calculateAngleWithLatitude:mapView.centerCoordinate.latitude
+                                                            andLongitude:mapView.centerCoordinate.longitude];
+         
+         self.arrowToStadium.transform = CGAffineTransformMakeRotation(heading);
+     }];
+}
+
 
 
 // ------------------------------------------------------------------------------------------

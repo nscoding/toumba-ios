@@ -9,8 +9,6 @@
 #import "TMLocationHelper.h"
 #import "TMAngleCalculator.h"
 
-#import "BlockAlertView.h"
-
 
 // ------------------------------------------------------------------------------------------
 
@@ -155,15 +153,20 @@
     if (showsAlert == NO)
     {
         showsAlert = YES;
-        BlockAlertView *alertView = [BlockAlertView alertWithTitle:errorType message:errorMessage];
-        [alertView setCancelButtonWithTitle:NSLocalizedString(@"Dismiss", nil)
-                                      block:^{
-                                          showsAlert = NO;
-                                      }];
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:errorType
+                                                            message:errorMessage
+                                                           delegate:self
+                                                  cancelButtonTitle:NSLocalizedString(@"Dismiss", nil)
+                                                  otherButtonTitles:nil];
         [alertView show];
     }
 }
 
 
+- (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated
+{
+    showsAlert = NO;
+}
 
 @end

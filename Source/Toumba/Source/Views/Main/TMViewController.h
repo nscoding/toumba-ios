@@ -20,5 +20,7 @@
 @property (nonatomic, strong) UILabel *distanceLabel;
 @property (nonatomic, strong) UIImageView *compassBaseView;
 @property (nonatomic, strong) UIImageView *arrowView;
+@property (nonatomic, strong) UIImageView *arrowToStadium;
+@property (nonatomic, strong) UITextView *historyTextView;
 
 @end

@@ -8,7 +8,6 @@
 
 #import "TMAppDelegate.h"
 #import "TMViewController.h"
-#import "BlockAlertView.h"
 
 #import "Appirater.h"
 #import "TestFlight.h"
@@ -34,27 +33,30 @@
     
     [self configureAppiRater];
 
-    BlockAlertView *alert = [BlockAlertView alertWithTitle:NSLocalizedString(@"app_welcome_title", @"")
-                                                   message:NSLocalizedString(@"app_welcome_subtitle", @"")];
-    
-    [alert setCancelButtonWithTitle:NSLocalizedString(@"app_enjoy", @"")
-                              block:^{
-                                  
-                                  double delayInSeconds = 1.0;
-                                  dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW,
-                                                                          (int64_t)(delayInSeconds * NSEC_PER_SEC));
-                                  
-                                  dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                                      
-                                      [Appirater appLaunched:YES];
-                                      
-                                  });
-                              }];
-    
-    [alert show];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"app_welcome_title", @"")
+                                                        message:NSLocalizedString(@"app_welcome_subtitle", @"")
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"Dismiss", nil)
+                                              otherButtonTitles:nil];
+    [alertView show];    
 
     return YES;
 }
+
+
+- (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated
+{
+    double delayInSeconds = 1.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW,
+                                            (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        [Appirater appLaunched:YES];
+        
+    });
+}
+
 
 
 - (void)configureAppiRater
